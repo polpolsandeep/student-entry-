@@ -1,0 +1,21 @@
+.admission_query{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0.25,0.8);
+    padding: 0.30rem;
+    margin: 1rem 0 ;
+    border-radius: 12px;
+    background-color: #6B5B95;
+}
+.school{
+    box-sizing: content-box;
+    border: 20px;
+    color: #000;
+}
+
+h3{
+    color: blue;
+}
