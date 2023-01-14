@@ -2,14 +2,14 @@ import React from "react";
 import './Basic.css';
 import GenBasic from "./GenBasic";
 
-function Basic(props){
+const Basic=(props)=>{
     const saveAdmissionDataHandler=(enteredAdmissionData)=>{
         const AdmissionData ={
            ...enteredAdmissionData,
            id:Math.random().toString()
         }
         props.onAddAdmissionData(AdmissionData)
-        console.log(AdmissionData);      //Responsible for data Transfer
+        //console.log(AdmissionData);      //Responsible for data Transfer
 };
     return(
         <div>

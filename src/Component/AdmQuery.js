@@ -1,9 +1,10 @@
 import React from "react";
 import './AdmQuery.css';
 
-function AdmQuery(props){
+const AdmQuery=(props)=>{
     
     return(
+        <form>
         <div className="school">
             <div className="admission_query">
               <h3>{props.class}</h3>
@@ -13,6 +14,7 @@ function AdmQuery(props){
               <div className="admission_parent">{props.parent}</div>
             </div>
         </div>
+        </form>
     );
 }
 export default AdmQuery;

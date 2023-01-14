@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import './GenBasic.css';
 
-function GenBasic(props){
+const GenBasic=(props)=>{
     const[enteredClass,setEnteredClass]=useState('');
     const[enteredAmount,setEnteredAmount]=useState('');
     const[enteredStudent,setEnteredStudent]=useState('');
     const[enteredAge,setEnteredAge]=useState('');
     const[enteredParent,setEnteredParent]=useState('');
+
+    
 
     const classChangeHandler=(event)=>{
         setEnteredClass(event.target.value);
@@ -36,7 +38,7 @@ function GenBasic(props){
         age:enteredAge,
         parent:enteredParent
     }
-    console.log(AdmissionData);
+    //console.log(AdmissionData);
 
 
     props.onsaveAdmissionData(AdmissionData); //Responsible for data tranfser
@@ -49,6 +51,7 @@ function GenBasic(props){
     setEnteredAge('');
     setEnteredParent('');
 };
+
     return(
 <form onSubmit={submitHandler}>
     <div className="form">

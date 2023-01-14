@@ -1,10 +1,10 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState } from 'react';
 import './App.css';
 import Admdet from './Component/Admdet';
 import Basic from './function/Basic';
 let DUMMY_SCHOOL=
 [
-  {
+  /*{
     id:'s1',
     class:"UKG",
     amount:2000,
@@ -35,13 +35,43 @@ let DUMMY_SCHOOL=
     student:"Khushi Singh",
     age:"7 Year",
     parent:"Mahendera Kumar"
-  },
+  },*/
 ]
-function App(){
-   const [school,setSchool]=useState(DUMMY_SCHOOL)
+const App=()=>{
+   const [school,setSchool]=useState(DUMMY_SCHOOL);
+
+   function fetchData(){
+    fetch('http://localhost:3001/post').then(
+      response=>{
+        return response.json();
+      }
+     ).then(
+      data=>{
+        //console.log(data);
+        setSchool(data)
+      }
+     );
+   }
+   
+   useEffect(()=>{
+    fetchData()
+  },[]);
+   
    const AddAdmissionDataHandler=(Admission)=>{
-     const updatedAdmission=[Admission,...school]
-     setSchool(updatedAdmission);
+    
+    fetch('http://localhost:3001/post',{
+      method:"post",
+      body:JSON.stringify(Admission),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }).then(
+      response=>{
+        fetchData()
+      }
+    );
+    //const updatedAdmission=[Admission,...school]
+     //setSchool(updatedAdmission);
    };
   return (
     <div className='container'>
